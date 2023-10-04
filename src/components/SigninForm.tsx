@@ -41,7 +41,7 @@ const SigninForm = () => {
         return;
       }
 
-      router.push("/profile");
+      router.replace("profile");
     } catch (error) {
       console.log(error);
     }
