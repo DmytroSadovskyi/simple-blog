@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/models/userModel.js"
+    "src/models/userModel.js",
+    "src/configs/auth.ts"
   ],
   "exclude": ["node_modules"]
 }
