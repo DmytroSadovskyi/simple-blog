@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +10,24 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.active {
+  @apply rounded-md p-1.5 bg-cyan-500 hover:bg-cyan-700 hover:text-white;
+}
+
+.back-link {
+  @apply rounded-md p-1.5 bg-cyan-500 hover:bg-cyan-700 hover:text-white;
+}
+
+.post-title {
+  @apply text-lg text-slate-600 mb-2 font-semibold;
+}
+
+.post-text {
+  @apply mb-3;
+}
+
+input {
+  @apply w-[400px] border border-gray-200 py-2 px-6 bg-zinc-100/40;
 }
