@@ -12,8 +12,8 @@ const Profile = async () => {
         <div>
           <Image
             src={session?.user?.image}
-            width={60}
-            height={60}
+            width={50}
+            height={50}
             alt={`picture of ${userName}`}
             className="rounded-full"
           />
