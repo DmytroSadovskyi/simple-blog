@@ -8,7 +8,7 @@ export const POST = async (request: NextRequest) => {
     await connect();
 
     const { name, email, password } = await request.json();
-    console.log({ name, email, password });
+
     const user = await User.findOne({ email });
 
     if (user) {
