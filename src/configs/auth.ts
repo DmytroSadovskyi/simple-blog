@@ -6,13 +6,11 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import bcryptjs from "bcryptjs";
 
-const { GOOGLE_CLIENT_ID, GOOGLE_SECRET, NEXTAUTH_SECRET } = process.env;
-
 export const authConfig: AuthOptions = {
   providers: [
     GoogleProvider({
-      clientId: GOOGLE_CLIENT_ID!,
-      clientSecret: GOOGLE_SECRET!,
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_SECRET!,
     }),
     Credentials({
       credentials: {
@@ -53,7 +51,7 @@ export const authConfig: AuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/signin",
   },
