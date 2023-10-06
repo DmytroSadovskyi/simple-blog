@@ -31,12 +31,20 @@ const SignUpForm = () => {
     }
   };
 
+  const formReset = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+  };
+
   const router = useRouter();
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !password) {
       setError("All fields are necessary");
+      formReset();
+      return;
     }
 
     try {
@@ -46,15 +54,18 @@ const SignUpForm = () => {
         password,
       });
       console.log("Register success", response.data);
-      router.push("/profile");
+      router.push("/signin");
     } catch (error: any) {
-      console.log(error);
+      if (error.response) {
+        setError(error.response.data.error);
+      }
     }
+    formReset();
   };
   return (
     <div className="grid place-items-center h-screen">
       <div className="shadow-lg p-5 rounded-lg border-t-4 border-cyan-500">
-        <h1 className="text-xl font-bold my-4">Sign Up</h1>
+        <h1 className="text-xl font-bold my-4 ">Sign Up</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
           <input
             type="text"
@@ -79,7 +90,7 @@ const SignUpForm = () => {
           />
           <button
             type="submit"
-            className="bg-cyan-500 text-white font-bold px-6 py-2"
+            className="bg-cyan-500 text-white font-bold px-6 py-2 hover:bg-cyan-700 transition-[background-color] duration-300"
           >
             Sign Up
           </button>

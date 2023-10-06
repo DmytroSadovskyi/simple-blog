@@ -13,7 +13,7 @@ body {
 }
 
 .active {
-  @apply rounded-md p-1.5 bg-cyan-500 hover:bg-cyan-700 hover:text-white;
+  @apply rounded-md p-1.5 bg-cyan-500 hover:bg-cyan-700 text-white transition-[background-color] duration-300;
 }
 
 .back-link {

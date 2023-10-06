@@ -6,6 +6,8 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import bcryptjs from "bcryptjs";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export const authConfig: AuthOptions = {
   providers: [
     GoogleProvider({

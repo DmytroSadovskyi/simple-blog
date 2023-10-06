@@ -10,7 +10,7 @@ export default function Home() {
       <p
         className={`${roboto.className} text-sky-500 text-center font-bold text-2xl`}
       >
-        This is a simple blog for practicing in Next JS
+        This is a simple blog for practicing in NextJS
       </p>
     </main>
   );
