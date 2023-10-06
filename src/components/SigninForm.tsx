@@ -59,10 +59,9 @@ const SigninForm = () => {
       } else if (res?.error) {
         setError("Invalid credentials");
         formReset();
-        return;
+      } else {
+        router.replace("profile");
       }
-
-      router.replace("profile");
     } catch (error) {
       console.log(error);
     } finally {
