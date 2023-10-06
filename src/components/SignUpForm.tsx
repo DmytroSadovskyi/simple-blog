@@ -4,12 +4,19 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SignUpForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const { name, value } = e.target;
@@ -81,13 +88,27 @@ const SignUpForm = () => {
             value={email}
             onChange={handleChange}
           />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={handleChange}
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChange}
+            />
+            <button
+              type="button"
+              className="absolute top-2/4 right-[15px] -translate-y-2/4"
+              onClick={handleShowPassword}
+              aria-label="toggle-password"
+            >
+              {showPassword ? (
+                <AiOutlineEyeInvisible size={20} />
+              ) : (
+                <AiOutlineEye size={20} />
+              )}
+            </button>
+          </div>
           <button
             type="submit"
             className="bg-cyan-500 text-white font-bold px-6 py-2 hover:bg-cyan-700 transition-[background-color] duration-300"
